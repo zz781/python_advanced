@@ -1,0 +1,32 @@
+import copy
+import sys 
+#深浅拷贝
+def Copy():
+    a=[1,2,3,[4,5,6,[7,8]]]
+    b=a
+    c=a.copy()
+
+    print(c[3][3][0])
+    print(b[3][3][0])
+    c[0]=10
+    print(c[0])
+    print(b[0])
+    d=copy.deepcopy(a)
+    print(d)
+    
+#引用计数
+def count():
+    x=[]
+    print(sys.getrefcount(x))
+    y=x
+    print(sys.getrefcount(x))
+    box=[x]
+    print(sys.getrefcount(x))
+    del y
+    print(sys.getrefcount(x))
+    del box
+    print(sys.getrefcount(x))
+
+if __name__=='__main__':
+    Copy()
+    count()
