@@ -1,0 +1,30 @@
+from contextlib import contextmanager
+
+#类
+class Myopen():
+    def __init__(self,filepath):
+        print("构造一个上下文管理器")
+        self.filepath=filepath
+
+    def __enter__(self):
+        print("进入上下文管理器")
+        return self.filepath
+
+    def __exit__(self,exc_type,exc_value,traceback):
+        print("退出上下文管理器")
+
+with Myopen('test.txt') as f:
+    print(f'{f}')
+
+
+#生成器版本
+@contextmanager
+def open(filepath):
+    print("进入上下文管理器")
+    try:
+        yield filepath
+    finally:
+        print("退出上下文管理器")
+
+with open('test1.txt') as f:
+    print(f'{f}')
