@@ -1,0 +1,21 @@
+#迭代器
+def Iterator():
+    iterator=iter([1,2,3,4])
+    try:
+        while True:
+            num=next(iterator)
+            print(num)
+    except StopIteration:
+        pass
+
+
+
+
+if __name__=='__main__':
+    Iterator()
+    #生成器
+    generator=(i for i in range(6))
+    for num in generator:
+        print(num)
+   
+   
